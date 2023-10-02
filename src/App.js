@@ -22,29 +22,27 @@ const App = () => {
   useEffect(()=>{
     searchMovies('')
   },[])
-
-  const handleChange = (e) => {
-    setSearch(e.target.value)
-  }
-
-  const handleUserSearch = () => {
-    searchMovies(search)
-  }
-
   
   return (
     <div className="app">
       <h1>MovieLand</h1>
       <div className="search">
-        <input placeholder="Search for movies" value={search} onChange={handleChange} />
-        <img src={searchIcon} onClick={handleUserSearch}/>
+        <input 
+          placeholder="Search for movies" 
+          value={search} 
+          onChange={(e) => setSearch(e.target.value)} 
+        />
+        <img 
+          src={searchIcon} 
+          onClick={() => searchMovies(search)}
+        />
       </div>
       <div className="container">
         {
           movies?.length>0?
           movies.map((movie) =>
           <MovieCard movie1 = {movie} />
-          ):<p>no movies avail</p>
+          ):<h2>no movies avail</h2>
         }
       </div>
     </div>
