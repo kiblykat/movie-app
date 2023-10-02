@@ -35,6 +35,7 @@ const App = () => {
         <img 
           src={searchIcon} 
           onClick={() => searchMovies(search)}
+          alt="searchImg"
         />
       </div>
       <div className="container">
@@ -42,7 +43,10 @@ const App = () => {
           movies?.length>0?
           movies.map((movie) =>
           <MovieCard movie1 = {movie} />
-          ):<h2>no movies avail</h2>
+          ):
+          <div className="empty">
+            <h2>no movies avail</h2>
+          </div>
         }
       </div>
     </div>
